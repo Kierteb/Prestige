@@ -198,7 +198,6 @@ p { font-size: 0.95rem; color: var(--mid-grey); }
   height: 52px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
 }
 
 .nav-links {
@@ -1250,7 +1249,6 @@ p { font-size: 0.95rem; color: var(--mid-grey); }
   height: 50px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
   margin-bottom: 1.25rem;
 }
 
