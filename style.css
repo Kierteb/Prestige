@@ -21,11 +21,67 @@
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body:    'Montserrat', sans-serif;
 
+  --topbar-height: 38px;
   --nav-height: 80px;
   --transition: 0.3s ease;
   --shadow: 0 4px 30px rgba(0,0,0,0.12);
   --shadow-lg: 0 8px 50px rgba(0,0,0,0.18);
 }
+
+/* --------------------------------------------------------------------------
+   Top Bar
+   -------------------------------------------------------------------------- */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1001;
+  height: var(--topbar-height);
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topbar-inner {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.topbar-phone {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.topbar-phone:hover { color: var(--gold-light); }
+
+.topbar-phone svg { flex-shrink: 0; }
+
+.topbar-email {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(249,247,242,0.6);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.topbar-email:hover { color: var(--cream); }
 
 /* --------------------------------------------------------------------------
    Reset & Base
@@ -167,7 +223,7 @@ p { font-size: 0.95rem; color: var(--mid-grey); }
    -------------------------------------------------------------------------- */
 .nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: var(--topbar-height); left: 0; right: 0;
   z-index: 1000;
   height: var(--nav-height);
   display: flex;
@@ -1389,7 +1445,8 @@ p { font-size: 0.95rem; color: var(--mid-grey); }
    Responsive — Mobile (max 768px)
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-  :root { --nav-height: 68px; }
+  :root { --topbar-height: 36px; --nav-height: 68px; }
+  .topbar-email { display: none; }
 
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
