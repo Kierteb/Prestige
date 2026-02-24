@@ -1398,6 +1398,72 @@ p { font-size: 0.95rem; color: var(--mid-grey); }
 }
 
 /* --------------------------------------------------------------------------
+   WhatsApp Sticky Button
+   -------------------------------------------------------------------------- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 998;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.6);
+}
+
+/* --------------------------------------------------------------------------
+   Social Icons — Topbar & Footer
+   -------------------------------------------------------------------------- */
+.topbar-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.topbar-social {
+  display: flex;
+  align-items: center;
+  color: rgba(249,247,242,0.55);
+  transition: color var(--transition);
+}
+
+.topbar-social:hover { color: var(--gold); }
+
+.footer-socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.footer-social {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(249,247,242,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(249,247,242,0.55);
+  transition: all var(--transition);
+}
+
+.footer-social:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* --------------------------------------------------------------------------
    Scroll Animations
    -------------------------------------------------------------------------- */
 .fade-up {
