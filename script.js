@@ -196,11 +196,6 @@
         alert('Sorry, there was a problem sending your message. Please call or email us directly.');
       }
     });
-      if (!valid) return;
-      // Show success message
-      contactForm.style.display = 'none';
-      if (successMsg) successMsg.style.display = 'block';
-    });
   }
 
   /* -----------------------------------------------------------------------
