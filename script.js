@@ -158,7 +158,7 @@
   const successMsg  = document.getElementById('form-success');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+    contactForm.addEventListener('submit', async function (e) {
       e.preventDefault();
       // Basic validation
       const required = contactForm.querySelectorAll('[required]');
@@ -171,6 +171,31 @@
           field.style.borderColor = '';
         }
       });
+      if (!valid) return;
+      // Submit to Formspree
+      const submitBtn = contactForm.querySelector('[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          contactForm.style.display = 'none';
+          if (successMsg) successMsg.style.display = 'block';
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send My Enquiry';
+          alert('Sorry, there was a problem sending your message. Please call or email us directly.');
+        }
+      } catch (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send My Enquiry';
+        alert('Sorry, there was a problem sending your message. Please call or email us directly.');
+      }
+    });
       if (!valid) return;
       // Show success message
       contactForm.style.display = 'none';
